@@ -1,5 +1,5 @@
 # HeathkitH19Font
-an incomplete attempt to create an outline font of the Heathkit H19 terminal font, after [crt monitor - ZenithZ89 System Font - Retrocomputing Stack Exchange](https://retrocomputing.stackexchange.com/questions/29979/zenithz89-system-font)
+an attempt to create an outline font of the Heathkit H19 terminal font, after [crt monitor - ZenithZ89 System Font - Retrocomputing Stack Exchange](https://retrocomputing.stackexchange.com/questions/29979/zenithz89-system-font)
 
 ## Process
 
@@ -36,6 +36,11 @@ psf2bdf --first=0 --last=127 --fontname=HeathkitH19 --descent=2 --defchar=9 h19.
 ```
 
 Note that the [Bitmap Distribution Format (BDF)](https://en.wikipedia.org/wiki/Glyph_Bitmap_Distribution_Format) file created is effectively un-encoded. It does, however, contain all of the bitmap characters.
+
+[bdf2sfd](https://github.com/fcambus/bdf2sfd) did the heavy lifting of converting from a bitmap to an initial traced outline:
+```sh
+bdf2sfd -f 'Heathkit-H19 Regular' HeathkitH19.bdf > Heathkit-H19-Regular.sfd
+```
 
 ### Re-encoding
 
@@ -81,8 +86,7 @@ Note that the upper and lower quarter block mapping is not quite 100% accurate. 
 
 ## TBD
 
-* convert simple bitmap to outline
-* clean up the inevitable mess this process makes.
+* clean up the inevitable mess this process made.
 
 ## Licence
 
